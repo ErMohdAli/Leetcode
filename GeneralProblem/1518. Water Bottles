@@ -1,0 +1,31 @@
+# Water Bottle Problem Solver
+
+## Description
+This Python script provides a class `Solution` with a method `numWaterBottles` to calculate the maximum number of water bottles you can drink given a number of initial bottles and a number of bottles you can exchange for a full one.
+
+## Usage
+### `numWaterBottles(numBottles, numExchange)`
+- **Parameters:**
+  - `numBottles`: Integer - The initial number of water bottles.
+  - `numExchange`: Integer - The number of empty bottles needed to exchange for a full one.
+- **Returns:** 
+  - Integer representing the maximum number of water bottles you can drink.
+
+## Approach
+1. **Initialize Variables:** Initialize `ans` as the number of initial bottles.
+2. **Exchange Bottles:** Use a while loop to exchange empty bottles for full ones until there are not enough empty bottles left.
+3. **Calculate New Bottles:** Calculate the number of new bottles obtained from exchanging empty bottles.
+4. **Update Variables:** Update the number of bottles drunk (`ans`) and the remaining number of bottles (`numBottles`).
+5. **Return Result:** Return the final number of water bottles drunk (`ans`).
+
+## Example
+```python
+class Solution(object):
+    def numWaterBottles(self, numBottles, numExchange):
+        ans = numBottles
+        while numBottles >= numExchange:
+            newBottles = numBottles / numExchange
+            remBottles = numBottles % numExchange
+            ans = ans + newBottles
+            numBottles = newBottles + remBottles
+        return ans
