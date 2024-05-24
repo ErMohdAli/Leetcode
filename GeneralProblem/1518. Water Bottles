@@ -29,3 +29,10 @@ class Solution(object):
             ans = ans + newBottles
             numBottles = newBottles + remBottles
         return ans
+
+
+## Example
+```python
+class Solution(object):
+    def numWaterBottles(self, numBottles, numExchange):
+return numBottles + ((numBottles-1)//(numExchange-1))
